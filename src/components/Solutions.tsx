@@ -1,5 +1,5 @@
 import { ChartNoAxesColumnIncreasing, Gift, Settings, Users } from "lucide-react";
-import { Container, SectionSubtitle, SplitHeading } from "@/components/shared";
+import { Container, SectionTitle } from "@/components/shared";
 import SolutionCard, { type Solution } from "@/components/SolutionCard";
 
 const SOLUTIONS: Solution[] = [
@@ -46,10 +46,11 @@ export default function Solutions() {
     <section id="solutions" aria-labelledby="solutions-heading" className="scroll-mt-24 pt-14 pb-12 lg:pt-10 lg:pb-9">
       <Container>
         <div id="about" className="grid scroll-mt-28 gap-5 lg:grid-cols-[1fr_minmax(0,640px)] lg:items-start lg:gap-12">
-          <div>
-            <SplitHeading id="solutions-heading" lead="Our" accent="Solutions" className="lg:text-[3.85rem]" />
-            <SectionSubtitle>One Partner. Multiple Ways to Grow.</SectionSubtitle>
-          </div>
+          <SectionTitle
+            id="solutions-heading"
+            eyebrow="Our Solutions"
+            title="One Partner. Multiple Ways to Grow."
+          />
           <p className="text-[17px] leading-[1.55] text-ink/90 lg:pt-1 lg:text-[19px]">
             From digital growth to people solutions, from software to branded
             merchandise — we bring the right mix of technology, talent and

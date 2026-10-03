@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Container, SectionSubtitle, SplitHeading } from "@/components/shared";
+import { Container, SectionTitle } from "@/components/shared";
 import {
   Carousel,
   CarouselContent,
@@ -34,12 +34,11 @@ export default function Clients() {
       <Container>
         <Carousel opts={{ align: "start" }} aria-label="Client industries">
           <div className="flex items-end justify-between gap-6">
-            <div>
-              <SplitHeading id="clients-heading" lead="Our" accent="Clients" />
-              <SectionSubtitle>
-                Trusted by organizations across industries.
-              </SectionSubtitle>
-            </div>
+            <SectionTitle
+              id="clients-heading"
+              eyebrow="Our Clients"
+              title="Trusted by organizations across industries."
+            />
             <div className="flex shrink-0 gap-3 pb-1">
               <CarouselPrevious className={arrowClass} />
               <CarouselNext className={arrowClass} />

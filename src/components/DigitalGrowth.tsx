@@ -8,7 +8,7 @@ import {
   Target,
   type LucideIcon,
 } from "lucide-react";
-import { Container, PillLink, SectionSubtitle, SplitHeading } from "@/components/shared";
+import { Container, PillLink, SectionTitle } from "@/components/shared";
 
 interface Service {
   icon: LucideIcon;
@@ -30,15 +30,15 @@ function GrowthVisual({ sizes, className }: { sizes: string; className?: string 
   return (
     <div className={className}>
       <Image
-        src="/images/digital-growth.webp"
-        alt="Hand pointing at a glowing rising bar chart"
+        src="/images/digital-growth-desk.webp"
+        alt="Overhead view of a laptop with an analytics dashboard, a tablet with a website layout and a phone with a social feed on a navy desk"
         fill
         sizes={sizes}
-        className="object-cover object-left lg:[mask-image:linear-gradient(to_right,transparent_0%,black_16%)]"
+        className="object-cover object-[0%_30%] lg:[mask-image:linear-gradient(to_right,transparent_0%,rgb(0_0_0/0.2)_10%,rgb(0_0_0/0.6)_20%,rgb(0_0_0/0.9)_28%,black_34%)]"
       />
       <ul
         aria-label="Our approach"
-        className="absolute top-[16.5%] left-[19.5%] w-[27.5%] min-w-[150px] rounded-md border border-white/45 bg-navy-dark/35 px-[4%] py-[3.5%] text-[13px] leading-[2.1] font-semibold tracking-[0.06em] text-white uppercase shadow-[0_0_30px_rgb(4_25_60/0.25)] sm:text-base lg:text-[21px]"
+        className="absolute top-[16.5%] left-[19.5%] w-[27.5%] min-w-[150px] lg:left-[36%] lg:w-auto lg:min-w-[27.5%] lg:whitespace-nowrap xl:left-[19.5%] rounded-md border border-white/45 bg-navy-dark/35 px-[4%] py-[3.5%] text-[13px] leading-[2.1] font-semibold tracking-[0.06em] text-white uppercase shadow-[0_0_30px_rgb(4_25_60/0.25)] sm:text-base lg:text-[21px]"
       >
         {PILLARS.map((p) => (
           <li key={p}>{p}</li>
@@ -61,9 +61,12 @@ export default function DigitalGrowth() {
       />
 
       <Container className="relative z-10">
-        <div className="max-w-[620px] py-12 lg:min-h-[556px] lg:py-[22px]">
-          <SplitHeading id="digital-growth-heading" lead="Digital" accent="Growth" />
-          <SectionSubtitle>From visibility to real results.</SectionSubtitle>
+        <div className="max-w-[620px] py-12 lg:min-h-[556px] lg:max-w-[42vw] lg:py-[22px] xl:max-w-[620px]">
+          <SectionTitle
+            id="digital-growth-heading"
+            eyebrow="Digital Growth"
+            title="From Visibility to Real Results."
+          />
           <p className="mt-4 text-[17px] leading-[1.5] text-ink/90 lg:text-[19px]">
             We create data-driven digital strategies that help organizations
             build their brand, reach the right audience and achieve measurable

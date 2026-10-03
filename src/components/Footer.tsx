@@ -32,7 +32,15 @@ export default function Footer() {
     <footer className="bg-white">
       <Container>
         <div className="flex flex-col items-center gap-6 pt-7 pb-4 md:flex-row md:justify-between md:gap-8">
-          <Logo className="h-[60px] lg:h-[72px]" />
+          <div className="flex flex-col items-center gap-3 md:shrink-0 md:items-start">
+            <Logo className="h-[60px] lg:h-[72px]" />
+            <address className="text-center text-[14px] leading-relaxed whitespace-nowrap text-ink/75 not-italic md:text-left">
+              <span className="block font-semibold text-navy-dark">100CP PTE. LTD.</span>
+              60 Paya Lebar Road, #06-28
+              <br />
+              Paya Lebar Square, Singapore 409051
+            </address>
+          </div>
 
           <nav aria-label="Footer">
             <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2 lg:gap-x-11">

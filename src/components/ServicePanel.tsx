@@ -51,13 +51,15 @@ export default function ServicePanel({
         </div>
       </header>
 
-      <div className="grid flex-1 gap-5 p-3 sm:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] sm:items-center sm:gap-6">
+      {/* At lg the BPO and Staffing panels differ in width, so the image column is sized
+          from the viewport (not the panel) to keep both images identical. */}
+      <div className="grid flex-1 gap-5 p-3 sm:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] sm:items-center sm:gap-6 lg:grid-cols-[clamp(180px,calc(32vw-140px),320px)_minmax(0,1fr)]">
         <div className="relative aspect-[131/102] overflow-hidden rounded-lg">
           <Image
             src={image}
             alt={imageAlt}
             fill
-            sizes="(min-width: 1024px) 330px, (min-width: 640px) 45vw, 100vw"
+            sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 100vw"
             className="object-cover"
           />
         </div>

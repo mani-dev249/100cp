@@ -7,7 +7,7 @@ import {
   UsersRound,
   type LucideIcon,
 } from "lucide-react";
-import { Container, IconCircle, SplitHeading } from "@/components/shared";
+import { Container, IconCircle, SectionTitle } from "@/components/shared";
 
 interface Reason {
   title: string;
@@ -59,11 +59,13 @@ export default function Why100CP() {
       </div>
 
       <Container className="relative z-10">
-        <div className="py-10 lg:min-h-[296px] lg:max-w-[760px] lg:py-[18px]">
-          <SplitHeading id="why-heading" lead="Why" accent="100 CP?" leadClassName="text-white" />
-          <p className="mt-1 text-lg font-semibold text-white sm:text-xl lg:text-[1.55rem]">
-            Global capability. Real value.
-          </p>
+        <div className="py-14 lg:min-h-[296px] lg:max-w-[760px] lg:py-16">
+          <SectionTitle
+            id="why-heading"
+            eyebrow="Why 100 CP?"
+            title="Global capability. Real value."
+            tone="light"
+          />
 
           <div className="mt-5 grid gap-x-8 gap-y-4 sm:grid-cols-[minmax(0,0.92fr)_minmax(0,1fr)]">
             {COLUMNS.map((column, i) => (

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { GraduationCap, Settings, Users, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Container, PillLink, SectionSubtitle, SplitHeading } from "@/components/shared";
+import { Container, PillLink, SectionTitle } from "@/components/shared";
 
 interface Product {
   name: string;
@@ -45,8 +45,11 @@ export default function SoftwareSolutions() {
       <Container>
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,710px)] lg:items-center lg:gap-6">
           <div className="max-w-[600px]">
-            <SplitHeading id="software-heading" lead="Software" accent="Solutions" />
-            <SectionSubtitle>Technology that simplifies, connects and scales.</SectionSubtitle>
+            <SectionTitle
+              id="software-heading"
+              eyebrow="Software Solutions"
+              title="Technology that simplifies, connects and scales."
+            />
             <p className="mt-4 text-[17px] leading-[1.5] text-ink/90 lg:text-[19px]">
               We develop and implement practical software solutions to help
               organizations manage operations, people and growth efficiently.

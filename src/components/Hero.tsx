@@ -34,17 +34,21 @@ export default function Hero() {
       aria-labelledby="hero-heading"
       className="relative overflow-hidden bg-[linear-gradient(180deg,#f5f9fc_0%,#ffffff_100%)]"
     >
-      {/* Desktop: image bleeds to the right edge and fades into the white left side */}
-      <div className="absolute inset-y-0 right-0 hidden w-[64%] lg:block">
+      {/* Desktop: full-bleed panorama; the bright sky on the left sits behind the copy */}
+      <div className="absolute inset-0 hidden lg:block">
         <Image
-          src="/images/hero.webp"
+          src="/images/hero-panorama.webp"
           alt="Backpacker on a mountain ridge overlooking a city at sunrise"
           fill
           preload
-          sizes="64vw"
-          className="object-cover object-[center_40%] [mask-image:linear-gradient(to_right,transparent_0%,black_20%)]"
+          sizes="100vw"
+          className="object-cover object-[70%_35%]"
         />
-        <HandwrittenNote className="absolute top-[12%] left-[13%] w-[46%]" />
+        <div
+          aria-hidden
+          className="absolute inset-y-0 left-0 w-[55%] bg-[linear-gradient(to_right,rgb(255_255_255/0.55),rgb(255_255_255/0.25)_60%,transparent)]"
+        />
+        <HandwrittenNote className="absolute top-[18%] left-[46%] w-[30%]" />
       </div>
 
       <Container className="relative z-10">
@@ -83,11 +87,11 @@ export default function Hero() {
       {/* Mobile / tablet: image sits below the copy */}
       <div className="relative aspect-[16/11] w-full sm:aspect-[16/9] lg:hidden">
         <Image
-          src="/images/hero.webp"
+          src="/images/hero-panorama.webp"
           alt="Backpacker on a mountain ridge overlooking a city at sunrise"
           fill
           sizes="100vw"
-          className="object-cover object-[center_40%]"
+          className="object-cover object-[78%_60%]"
         />
         <HandwrittenNote className="absolute top-[12%] left-[5%] w-[56%] sm:w-[48%]" />
       </div>

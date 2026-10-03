@@ -28,48 +28,42 @@ export function Container({
   );
 }
 
-/** Two-tone heading: first part navy, second part red. */
-export function SplitHeading({
-  lead,
-  accent,
-  as: Tag = "h2",
+/** Section heading: red-dash eyebrow label above the main title. */
+export function SectionTitle({
   id,
+  eyebrow,
+  title,
+  tone = "dark",
   className,
-  leadClassName = "text-navy",
 }: {
   id?: string;
-  lead: string;
-  accent?: string;
-  as?: "h1" | "h2" | "h3";
+  eyebrow: string;
+  title: React.ReactNode;
+  /** "light" for headings placed on dark backgrounds. */
+  tone?: "dark" | "light";
   className?: string;
-  leadClassName?: string;
 }) {
   return (
-    <Tag
-      id={id}
-      className={cn(
-        "font-heading text-[2.25rem] leading-[1.08] font-extrabold tracking-[-0.025em] sm:text-[2.75rem] lg:text-[3.5rem]",
-        className
-      )}
-    >
-      <span className={leadClassName}>{lead}</span>
-      {accent && <> <span className="text-brand-red">{accent}</span></>}
-    </Tag>
-  );
-}
-
-export function SectionSubtitle({
-  className,
-  ...props
-}: React.ComponentProps<"p">) {
-  return (
-    <p
-      className={cn(
-        "mt-1.5 text-lg font-bold tracking-[-0.02em] text-navy-dark sm:text-xl lg:text-[1.55rem]",
-        className
-      )}
-      {...props}
-    />
+    <div className={className}>
+      <p
+        className={cn(
+          "flex items-center gap-3 text-[13px] font-bold tracking-[0.16em] uppercase",
+          tone === "light" ? "text-white/85" : "text-brand-red"
+        )}
+      >
+        <span aria-hidden className="h-[3px] w-8 shrink-0 rounded-full bg-brand-red" />
+        {eyebrow}
+      </p>
+      <h2
+        id={id}
+        className={cn(
+          "mt-2 font-heading text-[2rem] leading-[1.1] font-extrabold tracking-[-0.025em] sm:text-[2.4rem] lg:text-[2.75rem]",
+          tone === "light" ? "text-white" : "text-navy"
+        )}
+      >
+        {title}
+      </h2>
+    </div>
   );
 }
 

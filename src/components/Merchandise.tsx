@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Gift, Shirt, ShoppingBag, type LucideIcon } from "lucide-react";
-import { Container, IconCircle, PillLink, SectionSubtitle, SplitHeading } from "@/components/shared";
+import { Container, IconCircle, PillLink, SectionTitle } from "@/components/shared";
 
 interface Category {
   title: string;
@@ -21,8 +21,11 @@ export default function Merchandise() {
       <Container>
         <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,480px)_minmax(0,1fr)_minmax(0,300px)] lg:gap-0">
           <div className="relative z-10 max-w-[480px] lg:self-start lg:pt-5">
-            <SplitHeading id="merch-heading" lead="Merchandise" />
-            <SectionSubtitle>Branded products that make an impact.</SectionSubtitle>
+            <SectionTitle
+              id="merch-heading"
+              eyebrow="Merchandise"
+              title="Branded products that make an impact."
+            />
             <p className="mt-4 text-[17px] leading-[1.5] text-ink/90 lg:max-w-[440px] lg:text-[19px]">
               High-quality, customized merchandise for organizations, events,
               churches, conferences and corporate needs.

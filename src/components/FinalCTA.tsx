@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Container, PillLink, SplitHeading } from "@/components/shared";
+import { Container, PillLink, SectionTitle } from "@/components/shared";
 
 export default function FinalCTA() {
   return (
@@ -10,20 +10,26 @@ export default function FinalCTA() {
     >
       <div className="absolute inset-0 lg:left-auto lg:w-[56%]">
         <Image
-          src="/images/cta.webp"
-          alt="Singapore skyline with Marina Bay Sands at sunset"
+          src="/images/cta-singapore.webp"
+          alt="Singapore skyline across Marina Bay at sunset, with Marina Bay Sands and the ArtScience Museum"
           fill
           sizes="(min-width: 1024px) 56vw, 100vw"
-          className="object-cover object-right opacity-30 lg:opacity-100 lg:[mask-image:linear-gradient(to_right,transparent_0%,black_26%)]"
+          className="object-cover object-right opacity-30 lg:object-left lg:opacity-100 xl:object-right lg:[mask-image:linear-gradient(to_right,transparent_0%,black_26%)]"
         />
       </div>
 
       <Container className="relative z-10">
-        <div className="py-12 sm:py-10 lg:min-h-[196px] lg:py-6">
-          <SplitHeading id="cta-heading" lead="Let’s Create" accent="What’s Next" />
-          <p className="mt-1.5 text-lg font-bold text-navy-dark sm:text-xl lg:text-[1.55rem]">
-            Business growth. More opportunities. A wider impact.
-          </p>
+        <div className="py-14 lg:min-h-[196px] lg:py-16">
+          <SectionTitle
+            id="cta-heading"
+            eyebrow="Let’s Create What’s Next"
+            title={
+              <>
+                Business growth. More opportunities.
+                <br className="max-sm:hidden" /> A wider impact.
+              </>
+            }
+          />
           <PillLink href="#contact" size="sm" className="mt-4 min-w-[160px]">
             Get in Touch
           </PillLink>
