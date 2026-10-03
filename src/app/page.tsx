@@ -10,6 +10,7 @@ import Clients from "@/components/Clients";
 import Why100CP from "@/components/Why100CP";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
