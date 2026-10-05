@@ -18,7 +18,7 @@ export interface ServicePanelProps {
   items: ServiceItem[];
 }
 
-/** Coloured header bar + image + service list. Shared by the BPO and Staffing cards. */
+/** Coloured header bar, image, and service list shared by the service cards. */
 export default function ServicePanel({
   tone,
   icon: HeaderIcon,
@@ -36,7 +36,7 @@ export default function ServicePanel({
     >
       <header
         className={cn(
-          "flex items-center gap-4 px-6 py-3.5 text-white lg:min-h-[84px]",
+          "flex min-h-[124px] items-center gap-4 px-5 py-3.5 text-white",
           tone === "navy"
             ? "bg-[linear-gradient(90deg,#062f63,#0a4a91)]"
             : "bg-[linear-gradient(90deg,#d81f2b,#ef2939)]"
@@ -51,35 +51,32 @@ export default function ServicePanel({
         </div>
       </header>
 
-      {/* At lg the BPO and Staffing panels differ in width, so the image column is sized
-          from the viewport (not the panel) to keep both images identical. */}
-      <div className="grid flex-1 gap-5 p-3 sm:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] sm:items-center sm:gap-6 lg:grid-cols-[clamp(180px,calc(32vw-140px),320px)_minmax(0,1fr)]">
-        <div className="relative aspect-[131/102] overflow-hidden rounded-lg">
+      <div className="flex flex-1 flex-col gap-4 p-3">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
           <Image
             src={image}
             alt={imageAlt}
             fill
-            sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 100vw"
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
             className="object-cover"
           />
         </div>
         <ul
           className={cn(
-            "space-y-4 px-3 pb-3 sm:px-0 sm:pr-3 sm:pb-0",
-            tone === "red" && "sm:space-y-6"
+            "space-y-3 px-2 pb-2"
           )}
         >
           {items.map(({ icon: Icon, title: itemTitle, detail }) => (
-            <li key={itemTitle} className="flex items-start gap-3.5">
+            <li key={itemTitle} className="flex items-start gap-3">
               <Icon
                 aria-hidden
                 className={cn(
-                  "mt-0.5 size-6 shrink-0",
+                  "mt-0.5 size-5 shrink-0",
                   tone === "navy" ? "text-brand-red" : "text-navy"
                 )}
                 strokeWidth={2.2}
               />
-              <p className="text-[15px] leading-[1.3] text-navy-dark lg:text-[16.5px]">
+              <p className="text-[14px] leading-[1.35] text-navy-dark">
                 <span className="font-semibold">{itemTitle}</span>
                 {detail && <span className="block text-ink/85">{detail}</span>}
               </p>

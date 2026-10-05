@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { CirclePlay } from "lucide-react";
 import { Container, PillLink } from "@/components/shared";
+import { ContactTrigger } from "@/components/ContactPopup";
 
 function HandwrittenNote({ className }: { className?: string }) {
   return (
@@ -8,7 +8,7 @@ function HandwrittenNote({ className }: { className?: string }) {
       <p className="-rotate-[9deg] font-script text-[19px] leading-[1.45] whitespace-nowrap text-navy-dark sm:text-[26px] xl:text-[33px]">
         <span className="block">Businesses Grow.</span>
         <span className="block pl-[0.3em]">People Get Opportunities.</span>
-        <span className="block pl-[0.5em]">Missions Get Support.</span>
+        <span className="block pl-[0.5em]">Communities Thrive.</span>
       </p>
       <svg
         aria-hidden
@@ -72,14 +72,12 @@ export default function Hero() {
             <PillLink href="#solutions" className="sm:min-w-[298px]">
               Explore Our Solutions
             </PillLink>
-            {/* No video source provided yet — wire this button to the video player/modal. */}
-            <button
-              type="button"
-              className="inline-flex h-[54px] cursor-pointer items-center gap-2.5 rounded-full border-2 border-navy/60 bg-white/70 px-9 text-base font-semibold text-navy transition-all duration-200 hover:-translate-y-0.5 hover:border-navy hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy sm:min-w-[214px]"
+            <ContactTrigger
+              className="group inline-flex h-[54px] cursor-pointer items-center justify-center gap-2.5 rounded-full border-2 border-navy/60 bg-white/70 px-9 text-base font-semibold text-navy transition-all duration-200 hover:-translate-y-0.5 hover:border-navy hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy sm:min-w-[214px]"
+              showArrow
             >
-              <CirclePlay aria-hidden className="size-5" strokeWidth={2.2} />
-              Watch Video
-            </button>
+              Contact Us
+            </ContactTrigger>
           </div>
         </div>
       </Container>

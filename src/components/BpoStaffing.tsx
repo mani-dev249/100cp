@@ -1,6 +1,7 @@
 import { Container, SectionTitle } from "@/components/shared";
 import BpoCard from "@/components/BpoCard";
 import StaffingCard from "@/components/StaffingCard";
+import TrainingCard from "@/components/TrainingCard";
 
 export default function BpoStaffing() {
   return (
@@ -12,9 +13,10 @@ export default function BpoStaffing() {
           title="People and processes to keep you moving."
         />
 
-        <div className="mt-7 grid gap-5 lg:grid-cols-[minmax(0,1.14fr)_minmax(0,1fr)] lg:gap-6">
+        <div className="mt-7 grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           <BpoCard />
           <StaffingCard />
+          <TrainingCard />
         </div>
       </Container>
     </section>

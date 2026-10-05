@@ -11,10 +11,11 @@ import Why100CP from "@/components/Why100CP";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import ContactPopup from "@/components/ContactPopup";
 
 export default function Home() {
   return (
-    <>
+    <ContactPopup>
       <Header />
       <main className="flex-1">
         <Hero />
@@ -30,6 +31,6 @@ export default function Home() {
       </main>
       <Footer />
       <BackToTop />
-    </>
+    </ContactPopup>
   );
 }

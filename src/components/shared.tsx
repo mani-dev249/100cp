@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ContactTrigger } from "@/components/ContactPopup";
 
 export interface NavItem {
   label: string;
@@ -9,7 +10,6 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
   { label: "Services", href: "#solutions" },
   { label: "Products", href: "#merchandise" },
   { label: "Clients", href: "#clients" },
@@ -79,15 +79,22 @@ export function PillLink({
   className?: string;
   size?: "sm" | "md";
 }) {
+  const buttonClassName = cn(
+    "group inline-flex items-center justify-center gap-2 rounded-full bg-brand-red font-semibold text-white shadow-[0_6px_16px_-6px_rgb(229_35_47/0.6)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-red-bright hover:shadow-[0_10px_22px_-8px_rgb(229_35_47/0.7)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red",
+    size === "md" ? "h-[54px] px-9 text-base" : "h-12 px-8 text-[15px] lg:h-[54px] lg:min-w-[214px] lg:text-base",
+    className
+  );
+
+  if (href === "#contact") {
+    return (
+      <ContactTrigger className={buttonClassName} showArrow>
+        {children}
+      </ContactTrigger>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={cn(
-        "group inline-flex items-center justify-center gap-2 rounded-full bg-brand-red font-semibold text-white shadow-[0_6px_16px_-6px_rgb(229_35_47/0.6)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-red-bright hover:shadow-[0_10px_22px_-8px_rgb(229_35_47/0.7)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red",
-        size === "md" ? "h-[54px] px-9 text-base" : "h-12 px-8 text-[15px] lg:h-[54px] lg:min-w-[214px] lg:text-base",
-        className
-      )}
-    >
+    <Link href={href} className={buttonClassName}>
       {children}
       <ArrowRight
         aria-hidden

@@ -28,7 +28,7 @@ export default function Merchandise() {
             />
             <p className="mt-4 text-[17px] leading-[1.5] text-ink/90 lg:max-w-[440px] lg:text-[19px]">
               High-quality, customized merchandise for organizations, events,
-              churches, conferences and corporate needs.
+              ministries, conferences and corporate needs.
             </p>
             <PillLink href="#contact" size="sm" className="mt-6 min-w-[176px]">
               Learn More

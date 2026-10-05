@@ -19,7 +19,7 @@ const HIGHLIGHTS: Highlight[] = [
   {
     icon: ChartNoAxesColumnIncreasing,
     title: "Diverse Industries",
-    lines: ["Churches | Education | Healthcare", "Businesses | Non-Profits & More"],
+    lines: ["Education | Healthcare", "Businesses | Non-Profits & More"],
   },
   { icon: UsersRound, title: "People First", lines: ["Creating Opportunities"] },
   { icon: Heart, title: "Larger Purpose", lines: ["Supporting Missions"], filled: true },

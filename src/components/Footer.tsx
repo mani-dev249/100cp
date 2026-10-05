@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container, NAV_ITEMS } from "@/components/shared";
 import { Logo } from "@/components/Header";
+import { ContactTrigger } from "@/components/ContactPopup";
 
 interface Social {
   label: string;
@@ -46,12 +47,18 @@ export default function Footer() {
             <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2 lg:gap-x-11">
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-base font-medium text-ink transition-colors hover:text-brand-red"
-                  >
-                    {item.label}
-                  </Link>
+                  {item.href === "#contact" ? (
+                    <ContactTrigger className="text-base font-medium text-ink transition-colors hover:text-brand-red">
+                      {item.label}
+                    </ContactTrigger>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-base font-medium text-ink transition-colors hover:text-brand-red"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
