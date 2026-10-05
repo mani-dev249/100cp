@@ -51,6 +51,17 @@ export default function Hero() {
         <HandwrittenNote className="absolute top-[18%] left-[46%] w-[30%]" />
       </div>
 
+      <div aria-hidden className="absolute inset-0 lg:hidden">
+        <Image
+          src="/images/hero-panorama.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[78%_center]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.82)_0%,rgb(255_255_255/0.68)_58%,rgb(255_255_255/0.32)_100%)]" />
+      </div>
+
       <Container className="relative z-10">
         <div className="max-w-[600px] pt-8 pb-10 sm:pt-12 lg:min-h-[524px] lg:pt-8 lg:pb-20 xl:pl-5">
           <h1
@@ -82,17 +93,6 @@ export default function Hero() {
         </div>
       </Container>
 
-      {/* Mobile / tablet: image sits below the copy */}
-      <div className="relative aspect-[16/11] w-full sm:aspect-[16/9] lg:hidden">
-        <Image
-          src="/images/hero-panorama.webp"
-          alt="Backpacker on a mountain ridge overlooking a city at sunrise"
-          fill
-          sizes="100vw"
-          className="object-cover object-[78%_60%]"
-        />
-        <HandwrittenNote className="absolute top-[12%] left-[5%] w-[56%] sm:w-[48%]" />
-      </div>
     </section>
   );
 }
