@@ -34,32 +34,20 @@ export default function Hero() {
       aria-labelledby="hero-heading"
       className="relative overflow-hidden bg-[linear-gradient(180deg,#f5f9fc_0%,#ffffff_100%)]"
     >
-      {/* Desktop: full-bleed panorama; the bright sky on the left sits behind the copy */}
-      <div className="absolute inset-0 hidden lg:block">
+      <div className="absolute inset-0">
         <Image
-          src="/images/hero-panorama.webp"
-          alt="Backpacker on a mountain ridge overlooking a city at sunrise"
+          src="/images/marina-bay-sunset.webp"
+          alt=""
           fill
           preload
           sizes="100vw"
-          className="object-cover object-[70%_35%]"
+          className="object-cover object-[70%_center]"
         />
         <div
           aria-hidden
-          className="absolute inset-y-0 left-0 w-[55%] bg-[linear-gradient(to_right,rgb(255_255_255/0.55),rgb(255_255_255/0.25)_60%,transparent)]"
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgb(255_255_255/0.9)_0%,rgb(255_255_255/0.76)_36%,rgb(255_255_255/0.16)_72%,rgb(255_255_255/0.06)_100%)]"
         />
-        <HandwrittenNote className="absolute top-[18%] left-[46%] w-[30%]" />
-      </div>
-
-      <div aria-hidden className="absolute inset-0 lg:hidden">
-        <Image
-          src="/images/hero-panorama.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-[78%_center]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.82)_0%,rgb(255_255_255/0.68)_58%,rgb(255_255_255/0.32)_100%)]" />
+        <HandwrittenNote className="absolute top-[18%] left-[46%] hidden w-[30%] lg:block" />
       </div>
 
       <Container className="relative z-10">
