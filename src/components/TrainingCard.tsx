@@ -8,8 +8,8 @@ export default function TrainingCard() {
       icon={GraduationCap}
       title="Training"
       tagline="Developing people and organizations for a stronger tomorrow."
-      image="/images/client-education.webp"
-      imageAlt="Students learning together in a classroom"
+      image="/images/training-presenter.webp"
+      imageAlt="Presenter leading a training session for business professionals"
       items={[
         {
           icon: UsersRound,
