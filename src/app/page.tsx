@@ -12,6 +12,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ContactPopup from "@/components/ContactPopup";
+import LocationMap from "@/components/LocationMap";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <Why100CP />
         <FinalCTA />
       </main>
+      <LocationMap />
       <Footer />
       <BackToTop />
     </ContactPopup>
