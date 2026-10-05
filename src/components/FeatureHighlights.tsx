@@ -22,7 +22,7 @@ const HIGHLIGHTS: Highlight[] = [
     lines: ["Education | Healthcare", "Businesses | Non-Profits & More"],
   },
   { icon: UsersRound, title: "People First", lines: ["Creating Opportunities"] },
-  { icon: Heart, title: "Larger Purpose", lines: ["Supporting Missions"], filled: true },
+  { icon: Heart, title: "Larger Purpose", lines: ["Empowering Communities"], filled: true },
 ];
 
 export default function FeatureHighlights() {
