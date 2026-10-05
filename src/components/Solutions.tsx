@@ -58,7 +58,7 @@ export default function Solutions() {
           </p>
         </div>
 
-        <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SOLUTIONS.map((s) => (
             <li key={s.title}>
               <SolutionCard solution={s} />
