@@ -5,7 +5,6 @@ import { Dialog } from "@base-ui/react/dialog";
 import { ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const CONTACT_EMAIL = "";
 const OPEN_CONTACT_FORM_EVENT = "100cp:open-contact-form";
 
 const COUNTRY_CALLING_CODES = [
@@ -330,6 +329,8 @@ function ContactForm() {
   const [countryCode, setCountryCode] = useState("+65");
   const [errors, setErrors] = useState<ContactErrors>({});
   const [status, setStatus] = useState("");
+  const [statusType, setStatusType] = useState<"success" | "error">("success");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const focusInvalidField = useRef(false);
@@ -346,6 +347,7 @@ function ContactForm() {
   function updateField(field: ContactField, value: string) {
     setValues((current) => ({ ...current, [field]: value }));
     setStatus("");
+    setStatusType("success");
     if (showErrors || errors[field]) {
       setErrors((current) => ({
         ...current,
@@ -354,7 +356,7 @@ function ContactForm() {
     }
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setShowErrors(true);
 
@@ -372,22 +374,69 @@ function ContactForm() {
       return;
     }
 
-    if (!CONTACT_EMAIL) {
-      setStatus("Your details are valid. Add a contact email to enable sending.");
-      return;
-    }
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.name.trim(),
+          businessName: values.businessName.trim(),
+          email: values.email.trim(),
+          contactNumber: `${countryCode} ${values.phone.trim()}`,
+          details: values.details.trim(),
+        }),
+      });
 
-    const body = [
-      `Name: ${values.name.trim()}`,
-      `Business: ${values.businessName.trim()}`,
-      `Email: ${values.email.trim()}`,
-      `Contact number: ${countryCode} ${values.phone.trim()}`,
-      "",
-      "What they need:",
-      values.details.trim(),
-    ].join("\n");
-    const subject = `Website enquiry from ${values.name.trim()}`;
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      let result: unknown;
+      try {
+        result = await response.json();
+      } catch {
+        throw new Error(
+          "Unable to confirm that your enquiry was saved. Please try again."
+        );
+      }
+
+      if (!response.ok) {
+        const responseError =
+          typeof result === "object" &&
+          result !== null &&
+          "error" in result &&
+          typeof result.error === "string"
+            ? result.error
+            : undefined;
+        throw new Error(
+          responseError || "Unable to send your enquiry. Please try again."
+        );
+      }
+
+      if (
+        typeof result !== "object" ||
+        result === null ||
+        !("success" in result) ||
+        result.success !== true
+      ) {
+        throw new Error(
+          "Unable to confirm that your enquiry was saved. Please try again."
+        );
+      }
+
+      setValues(EMPTY_VALUES);
+      setCountryCode("+65");
+      setErrors({});
+      setShowErrors(false);
+      setStatusType("success");
+      setStatus("Thank you. Your enquiry has been received.");
+    } catch (error) {
+      setStatusType("error");
+      setStatus(
+        error instanceof Error
+          ? error.message
+          : "Unable to send your enquiry. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   function renderError(field: ContactField) {
@@ -568,15 +617,24 @@ function ContactForm() {
 
       <div className="sm:col-span-2">
         {status && (
-          <p role="status" className="mb-3 rounded-lg bg-sky px-3.5 py-3 text-sm font-medium text-navy">
+          <p
+            role={statusType === "error" ? "alert" : "status"}
+            className={cn(
+              "mb-3 rounded-lg px-3.5 py-3 text-sm font-medium",
+              statusType === "error"
+                ? "bg-red-50 text-red-800"
+                : "bg-sky text-navy"
+            )}
+          >
             {status}
           </p>
         )}
         <button
           type="submit"
+          disabled={isSubmitting}
           className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-red px-7 text-[15px] font-semibold text-white shadow-[0_6px_16px_-6px_rgb(229_35_47/0.6)] transition-all hover:-translate-y-0.5 hover:bg-brand-red-bright active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red sm:w-auto"
         >
-          Send Enquiry
+          {isSubmitting ? "Sending..." : "Send Enquiry"}
           <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-0.5" />
         </button>
       </div>

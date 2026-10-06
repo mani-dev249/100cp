@@ -13,7 +13,7 @@ const SOLUTIONS: Solution[] = [
     href: "#digital-growth",
   },
   {
-    title: "BPO & Staffing",
+    title: "BPO, Staffing and Training",
     description: "Reliable support and the right talent to keep you moving.",
     image: "/images/solution-bpo.webp",
     imageAlt: "Customer support agent with a headset in a busy office",

@@ -19,7 +19,7 @@ interface ClientCategory {
 }
 
 const CLIENTS: ClientCategory[] = [
-  { label: "Ministries", image: "/images/client-churches.webp", imageAlt: "Cross silhouetted against a sunset" },
+  { label: "Start Ups", image: "/images/solution-software.webp", imageAlt: "Startup team collaborating around software innovation" },
   { label: "Education", image: "/images/client-education.webp", imageAlt: "Students learning together in a classroom" },
   { label: "Healthcare", image: "/images/client-healthcare.webp", imageAlt: "Doctor in a white coat with a stethoscope" },
   { label: "Businesses & Corporates", image: "/images/client-business.webp", imageAlt: "Business team meeting around a table" },
