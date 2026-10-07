@@ -66,12 +66,17 @@ function isContactSubmission(value: unknown): value is ContactSubmission {
   );
 }
 
+// Hosting dashboards often keep the quotes copied from a .env value.
+function readEnv(name: string): string {
+  return (process.env[name]?.trim() ?? "").replace(/^(['"])([\s\S]*)\1$/, "$2").trim();
+}
+
 function getSheetConfig() {
   const config = {
-    clientEmail: process.env.GOOGLE_SHEETS_CLIENT_EMAIL?.trim() ?? "",
-    privateKey: process.env.GOOGLE_SHEETS_PRIVATE_KEY?.trim() ?? "",
-    spreadsheetId: process.env.GOOGLE_SHEET_ID?.trim() ?? "",
-    tabName: process.env.GOOGLE_SHEET_TAB_NAME?.trim() ?? "",
+    clientEmail: readEnv("GOOGLE_SHEETS_CLIENT_EMAIL"),
+    privateKey: readEnv("GOOGLE_SHEETS_PRIVATE_KEY"),
+    spreadsheetId: readEnv("GOOGLE_SHEET_ID"),
+    tabName: readEnv("GOOGLE_SHEET_TAB_NAME"),
   };
   const missing = Object.entries(config)
     .filter(([, value]) => !value)
@@ -86,7 +91,10 @@ function getSheetConfig() {
 
   return {
     ...config,
-    privateKey: config.privateKey.replace(/\\n/g, "\n"),
+    privateKey: config.privateKey
+      .replace(/\\r/g, "")
+      .replace(/\\n/g, "\n")
+      .replace(/\r/g, ""),
   };
 }
 
