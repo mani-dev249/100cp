@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Mail } from "lucide-react";
 import { Container, NAV_ITEMS } from "@/components/shared";
 import { Logo } from "@/components/Header";
 import { ContactTrigger } from "@/components/ContactPopup";
@@ -40,6 +41,14 @@ export default function Footer() {
               60 Paya Lebar Road, #06-28
               <br />
               Paya Lebar Square, Singapore 409051
+              <br />
+              <a
+                href="mailto:info@100cp.org"
+                className="inline-flex items-center gap-1.5 transition-colors hover:text-brand-red"
+              >
+                <Mail className="size-4 shrink-0" aria-hidden="true" />
+                info@100cp.org
+              </a>
             </address>
           </div>
 

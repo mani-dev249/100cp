@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Mail, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container, NAV_ITEMS } from "@/components/shared";
 import { ContactTrigger } from "@/components/ContactPopup";
@@ -131,7 +131,14 @@ export default function Header() {
                 )
               ))}
             </nav>
-            <div className="mt-auto p-5">
+            <div className="mt-auto flex flex-col gap-3 p-5">
+              <a
+                href="mailto:info@100cp.org"
+                className="flex h-12 w-full items-center justify-center gap-2 rounded-full border border-navy/20 text-sm font-semibold text-navy transition-colors hover:bg-sky"
+              >
+                <Mail className="size-4" />
+                info@100cp.org
+              </a>
               <ContactTrigger
                 onClick={() => setMenuOpen(false)}
                 outsideDialog
